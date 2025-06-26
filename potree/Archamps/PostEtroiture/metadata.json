@@ -1,0 +1,167 @@
+{
+	"version": "2.0",
+	"name": "Archamps_PostEtroiture_sampled_7cm_PCV_normals_classified_georef",
+	"description": "",
+	"points": 75224,
+	"projection": "",
+	"hierarchy": {
+		"firstChunkSize": 2068, 
+		"stepSize": 4, 
+		"depth": 0
+	},
+	"offset": [-21.075790405273438, -18.313005447387695, -4.8287400000000007],
+	"scale": [1.0000000000000001e-05, 1.0000000000000001e-05, 1.0000000000000001e-05],
+	"spacing": 0.35337445312500004,
+	"boundingBox": {
+		"min": [-21.075790405273438, -18.313005447387695, -4.8287400000000007], 
+		"max": [24.156139594726568, 26.91892455261231, 40.403190000000002]
+	},
+	"encoding": "DEFAULT",
+	"attributes": [
+		{
+			"name": "position",
+			"description": "",
+			"size": 12,
+			"numElements": 3,
+			"elementSize": 4,
+			"type": "int32",
+			"min": [-21.075790405273438, -18.313005447387695, -4.8287400000000007],
+			"max": [24.156139594726568, 21.624994552612307, 10.332270000000001],
+			"scale": [1, 1, 1],
+			"offset": [0, 0, 0]
+		},{
+			"name": "intensity",
+			"description": "",
+			"size": 2,
+			"numElements": 1,
+			"elementSize": 2,
+			"type": "uint16",
+			"min": [0],
+			"max": [65534],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "return number",
+			"description": "",
+			"size": 1,
+			"numElements": 1,
+			"elementSize": 1,
+			"type": "uint8",
+			"min": [1],
+			"max": [1],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "number of returns",
+			"description": "",
+			"size": 1,
+			"numElements": 1,
+			"elementSize": 1,
+			"type": "uint8",
+			"min": [1],
+			"max": [1],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "classification",
+			"description": "",
+			"size": 1,
+			"numElements": 1,
+			"elementSize": 1,
+			"type": "uint8",
+			"histogram": [0, 43811, 31413, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+			"min": [1],
+			"max": [2],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "scan angle rank",
+			"description": "",
+			"size": 1,
+			"numElements": 1,
+			"elementSize": 1,
+			"type": "uint8",
+			"min": [0],
+			"max": [0],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "user data",
+			"description": "",
+			"size": 1,
+			"numElements": 1,
+			"elementSize": 1,
+			"type": "uint8",
+			"min": [0],
+			"max": [0],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "point source id",
+			"description": "",
+			"size": 2,
+			"numElements": 1,
+			"elementSize": 2,
+			"type": "uint16",
+			"min": [0],
+			"max": [0],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "rgb",
+			"description": "",
+			"size": 6,
+			"numElements": 3,
+			"elementSize": 2,
+			"type": "uint16",
+			"min": [0, 0, 0],
+			"max": [65280, 65280, 65280],
+			"scale": [1, 1, 1],
+			"offset": [0, 0, 0]
+		},{
+			"name": "Illuminance (PCV)",
+			"description": "",
+			"size": 8,
+			"numElements": 1,
+			"elementSize": 8,
+			"type": "double",
+			"min": [0],
+			"max": [0.91015625],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "NormalX",
+			"description": "",
+			"size": 8,
+			"numElements": 1,
+			"elementSize": 8,
+			"type": "double",
+			"min": [-0.99999523162841797],
+			"max": [0.99996018409729004],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "NormalY",
+			"description": "",
+			"size": 8,
+			"numElements": 1,
+			"elementSize": 8,
+			"type": "double",
+			"min": [-0.99998354911804199],
+			"max": [0.99999523162841797],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "NormalZ",
+			"description": "",
+			"size": 8,
+			"numElements": 1,
+			"elementSize": 8,
+			"type": "double",
+			"min": [-0.99999904632568359],
+			"max": [0.99992829561233521],
+			"scale": [1],
+			"offset": [0]
+		}
+	]
+}

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="A karst conduit dataset">
+	<meta name="author" content="Tanguy Racine">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Potree Viewer</title>
+
+	<link rel="stylesheet" type="text/css" href="./libs/potree/potree.css">
+	<link rel="stylesheet" type="text/css" href="./libs/jquery-ui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="./libs/openlayers3/ol.css">
+	<link rel="stylesheet" type="text/css" href="./libs/spectrum/spectrum.css">
+	<link rel="stylesheet" type="text/css" href="./libs/jstree/themes/mixed/style.css">
+</head>
+
+<body>
+	<script src="./libs/jquery/jquery-3.1.1.min.js"></script>
+	<script src="./libs/spectrum/spectrum.js"></script>
+	<script src="./libs/jquery-ui/jquery-ui.min.js"></script>
+	<script src="./libs/other/BinaryHeap.js"></script>
+	<script src="./libs/tween/tween.min.js"></script>
+	<script src="./libs/d3/d3.js"></script>
+	<script src="./libs/proj4/proj4.js"></script>
+	<script src="./libs/openlayers3/ol.js"></script>
+	<script src="./libs/i18next/i18next.js"></script>
+	<script src="./libs/jstree/jstree.js"></script>
+	<script src="./libs/potree/potree.js"></script>
+	<script src="./libs/plasio/js/laslaz.js"></script>
+	
+	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
+	<!-- INCLUDE SETTINGS HERE -->
+	
+	<div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+		<div id="potree_render_area" style="background-image: url('../build/potree/resources/images/background.jpg');"></div>
+		<div id="potree_sidebar_container"> </div>
+	</div>
+	
+	<script>
+	
+		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+		
+		viewer.setEDLEnabled(true);
+		viewer.setFOV(60);
+		viewer.setPointBudget(1_000_000_000);
+		<!-- INCLUDE SETTINGS HERE -->
+		viewer.loadSettingsFromURL();
+		
+		viewer.setDescription("");
+		
+		viewer.loadGUI(() => {
+			viewer.setLanguage('en');
+			$("#menu_appearance").next().show();
+			$("#menu_tools").next().show();
+			$("#menu_clipping").next().show();
+			viewer.toggleSidebar();
+		});
+		
+		// INCLUDE POINTCLOUDS BELOW
+
+
+		Potree.loadPointCloud("./Archamps/PostEtroiture/metadata.json", "Grotte d'Archamps post etroiture", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+
+
+		Potree.loadPointCloud("./Archamps/PreEtroiture/metadata.json", "Grotte d'Archamps pre etroiture", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./BaumeDeLongeaigue/GrandToboggan/metadata.json", "Baume de Longeaigue", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./CascadeDeMotiers/MainGallery/metadata.json", "Cascade de Môtiers", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./Encanaux/PostVouteMouillante/metadata.json", "Encanaux 1", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./Encanaux/PreVouteMouillante/metadata.json", "Encanaux 2", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./CocaliereCotepatiere/AvenDeLaCocaliere1/metadata.json", "CocaliereCotepatiere AvenDeLaCocaliere1", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./CocaliereCotepatiere/AvenDeLaCocaliere2/metadata.json", "CocaliereCotepatiere AvenDeLaCocaliere2", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./CocaliereCotepatiere/AvenDeLaCocaliere3/metadata.json", "CocaliereCotepatiere AvenDeLaCocaliere3", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./CocaliereCotepatiere/EventDeCotepatiere/metadata.json", "CocaliereCotepatiere EventDeCotepatiere", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("EventDePeyrejal/DownstreamGallery/metadata.json", "Event de Peyrejal", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./FauxMonnayeurs/EntranceGallery/metadata.json", "Faux Monnayeurs (entrance)", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./GrotteDeLaMadeleine/Filleul/metadata.json", "Grotte de la Madeleine", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./GrotteDeLaSourde/EntranceGallery/metadata.json", "Grotte de la Sourde", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./Hoelloch/Riesengang/metadata.json", "Hölloch", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./Hoelloch/Seengang/metadata.json", "Hölloch", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./Hoelloch/KellerAquarium/metadata.json", "Hölloch", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./Lauiloch/EntranceGallery/metadata.json", "Lauiloch", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./LesCavottes/ReseauSupNord/metadata.json", "Les Cavottes", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./MarkovSpodmol/MainGallery/metadata.json", "Markov Spodmol", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./RuptDuPuits/Cascades/metadata.json", "Rupt du Puits", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+		Potree.loadPointCloud("./Vallorbe/GalerieSemiActive/metadata.json", "Vallorbe", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+
+		Potree.loadPointCloud("./VersChezLeBrandt/MainGallery/metadata.json", "Vers chez le Brandt", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 1;
+            material.gradient = Potree.Gradients.GRAYSCALE;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.shape = Potree.PointShape.CIRCLE;
+			material.activeAttributeName = "Illuminance (PCV)";
+			
+			scene.addPointCloud(pointcloud);
+			
+			viewer.fitToScreen();
+		});
+
+            viewer.scene.addAnnotation(
+                [0.0,-0.0,50.0], 
+                {  
+                    "cameraPosition": [0.0,-0.0,50.0],
+                    "cameraTarget": [0.0,50.0,-100.0],
+                    "title":  "Archamps",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [1000.0,-0.0,50.0], 
+                {  
+                    "cameraPosition": [1000.0,-0.0,50.0],
+                    "cameraTarget": [1000.0,50.0,-100.0],
+                    "title":  "BaumeDeLongeaigue",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [2000.0,0.0,50.0], 
+                {  
+                    "cameraPosition": [2000.0,0.0,50.0],
+                    "cameraTarget": [2000.0,50.0,-100.0],
+                    "title":  "CascadeDeMotiers",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [3000.0,-0.0,50.0], 
+                {  
+                    "cameraPosition": [3000.0,-0.0,50.0],
+                    "cameraTarget": [3000.0,50.0,-100.0],
+                    "title":  "CocaliereCotepatiere",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [4000.0,-0.0,50.0], 
+                {  
+                    "cameraPosition": [4000.0,-0.0,50.0],
+                    "cameraTarget": [4000.0,50.0,-100.0],
+                    "title":  "Encanaux",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [0.0,1000.0,50.0], 
+                {  
+                    "cameraPosition": [0.0,1000.0,50.0],
+                    "cameraTarget": [0.0,1050.0,-100.0],
+                    "title":  "EventDePeyrejal",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [1000.0,1000.0,50.0], 
+                {  
+                    "cameraPosition": [1000.0,1000.0,50.0],
+                    "cameraTarget": [1000.0,1050.0,-100.0],
+                    "title":  "FauxMonnayeurs",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [2000.0,1000.0,50.0], 
+                {  
+                    "cameraPosition": [2000.0,1000.0,50.0],
+                    "cameraTarget": [2000.0,1050.0,-100.0],
+                    "title":  "GrotteDeLaMadeleine",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [3000.0,1000.0,50.0], 
+                {  
+                    "cameraPosition": [3000.0,1000.0,50.0],
+                    "cameraTarget": [3000.0,1050.0,-100.0],
+                    "title":  "GrotteDeLaSourde",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [4000.0,1000.0,50.0], 
+                {  
+                    "cameraPosition": [4000.0,1000.0,50.0],
+                    "cameraTarget": [4000.0,1050.0,-100.0],
+                    "title":  "Hoelloch",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [0.0,2000.0,50.0], 
+                {  
+                    "cameraPosition": [0.0,2000.0,50.0],
+                    "cameraTarget": [0.0,2050.0,-100.0],
+                    "title":  "Lauiloch",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [2000.0,2000.0,50.0], 
+                {  
+                    "cameraPosition": [2000.0,2000.0,50.0],
+                    "cameraTarget": [2000.0,2050.0,-100.0],
+                    "title":  "LesCavottes",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [3000.0,2000.0,50.0], 
+                {  
+                    "cameraPosition": [3000.0,2000.0,50.0],
+                    "cameraTarget": [3000.0,2050.0,-100.0],
+                    "title":  "MarkovSpodmol",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [4000.0,2000.0,50.0], 
+                {  
+                    "cameraPosition": [4000.0,2000.0,50.0],
+                    "cameraTarget": [4000.0,2050.0,-100.0],
+                    "title":  "RuptDuPuits",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [-0.0,3000.0,50.0], 
+                {  
+                    "cameraPosition": [-0.0,3000.0,50.0],
+                    "cameraTarget": [-0.0,3050.0,-100.0],
+                    "title":  "Vallorbe",
+                    "description": " " 
+                }
+            );
+
+
+            viewer.scene.addAnnotation(
+                [1000.0,3000.0,50.0], 
+                {  
+                    "cameraPosition": [1000.0,3000.0,50.0],
+                    "cameraTarget": [1000.0,3050.0,-100.0],
+                    "title":  "VersChezLeBrandt",
+                    "description": " " 
+                }
+            );
+
+            
+	</script>
+	
+	
+  </body>
+</html>

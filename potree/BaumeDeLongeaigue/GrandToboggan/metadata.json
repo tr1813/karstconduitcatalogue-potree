@@ -1,0 +1,167 @@
+{
+	"version": "2.0",
+	"name": "BaumeDeLongeaigue_GrandToboggan_sampled_7cm_PCV_normals_classified_georef",
+	"description": "",
+	"points": 119237,
+	"projection": "",
+	"hierarchy": {
+		"firstChunkSize": 1518, 
+		"stepSize": 4, 
+		"depth": 0
+	},
+	"offset": [992.43939208984375, -12.078218460083008, -14.747905999999999],
+	"scale": [9.9999999999999995e-07, 9.9999999999999995e-07, 9.9999999999999995e-07],
+	"spacing": 0.28998422656250078,
+	"boundingBox": {
+		"min": [992.43939208984375, -12.078218460083008, -14.747905999999999], 
+		"max": [1029.5573730898438, 25.039762539917092, 22.370075000000099]
+	},
+	"encoding": "DEFAULT",
+	"attributes": [
+		{
+			"name": "position",
+			"description": "",
+			"size": 12,
+			"numElements": 3,
+			"elementSize": 4,
+			"type": "int32",
+			"min": [992.43939208984375, -12.078218460083008, -14.747905999999999],
+			"max": [1014.9434200898437, 12.07473553991699, 22.370075],
+			"scale": [1, 1, 1],
+			"offset": [0, 0, 0]
+		},{
+			"name": "intensity",
+			"description": "",
+			"size": 2,
+			"numElements": 1,
+			"elementSize": 2,
+			"type": "uint16",
+			"min": [0],
+			"max": [65534],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "return number",
+			"description": "",
+			"size": 1,
+			"numElements": 1,
+			"elementSize": 1,
+			"type": "uint8",
+			"min": [0],
+			"max": [0],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "number of returns",
+			"description": "",
+			"size": 1,
+			"numElements": 1,
+			"elementSize": 1,
+			"type": "uint8",
+			"min": [0],
+			"max": [0],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "classification",
+			"description": "",
+			"size": 1,
+			"numElements": 1,
+			"elementSize": 1,
+			"type": "uint8",
+			"histogram": [0, 87309, 31928, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+			"min": [1],
+			"max": [2],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "scan angle rank",
+			"description": "",
+			"size": 1,
+			"numElements": 1,
+			"elementSize": 1,
+			"type": "uint8",
+			"min": [0],
+			"max": [0],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "user data",
+			"description": "",
+			"size": 1,
+			"numElements": 1,
+			"elementSize": 1,
+			"type": "uint8",
+			"min": [0],
+			"max": [0],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "point source id",
+			"description": "",
+			"size": 2,
+			"numElements": 1,
+			"elementSize": 2,
+			"type": "uint16",
+			"min": [0],
+			"max": [0],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "rgb",
+			"description": "",
+			"size": 6,
+			"numElements": 3,
+			"elementSize": 2,
+			"type": "uint16",
+			"min": [0, 0, 0],
+			"max": [65280, 65280, 65280],
+			"scale": [1, 1, 1],
+			"offset": [0, 0, 0]
+		},{
+			"name": "Illuminance (PCV)",
+			"description": "",
+			"size": 8,
+			"numElements": 1,
+			"elementSize": 8,
+			"type": "double",
+			"min": [0],
+			"max": [0.890625],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "NormalX",
+			"description": "",
+			"size": 8,
+			"numElements": 1,
+			"elementSize": 8,
+			"type": "double",
+			"min": [-0.99998354911804199],
+			"max": [0.99997174739837646],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "NormalY",
+			"description": "",
+			"size": 8,
+			"numElements": 1,
+			"elementSize": 8,
+			"type": "double",
+			"min": [-0.99999904632568359],
+			"max": [0.99999904632568359],
+			"scale": [1],
+			"offset": [0]
+		},{
+			"name": "NormalZ",
+			"description": "",
+			"size": 8,
+			"numElements": 1,
+			"elementSize": 8,
+			"type": "double",
+			"min": [-0.99999523162841797],
+			"max": [0.99997174739837646],
+			"scale": [1],
+			"offset": [0]
+		}
+	]
+}
