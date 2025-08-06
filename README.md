@@ -8,11 +8,13 @@ The KarstConduitCatalogue [10.60544/7rk6-rn14](https://doi.org/10.60544/7rk6-rn1
 ## Visualisation of the datasets
 Point cloud data (in las 1.2 format) was converted to [Potree](http://potree.org/) binary files, allowing for their visualisation on a browser. You can access it by simply clicking below: 
 
-[View the Karst Conduit Catalogue here](https://tr1813.github.io/karstconduitcatalogue-potree/DataPaper.html) 
+[View the Karst Conduit Catalogue on Potree here](https://tr1813.github.io/karstconduitcatalogue-potree/DataPaper.html) 
 
 
 
 ![potree visualisation](img/potree-screen-shot-1.png) _Potree Visualisation of the Karst Conduit Catalogue_
+
+[![DOI](https://zenodo.org/badge/1009109997.svg)](https://doi.org/10.5281/zenodo.16754405)
 
 ## Copyright and license
 This dataset is licensed under a Creative Commons Attribution Non Commercial 4.0 International
